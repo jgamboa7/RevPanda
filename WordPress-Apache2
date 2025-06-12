@@ -1,0 +1,26 @@
+<VirtualHost *:80>
+    ServerAdmin:admin@revpanda.com
+    ServerName wordpress-apache2.com
+    DocumentRoot /var/www/html/wordpress
+
+  <Directory /var/www/html/wordpress>
+      Options -Indexes +FollowSymLinks
+      AllowOverride All
+      Require all granted
+  </Directory>
+
+  ErrorLog ${APACHE_LOG_DIR}/wordpress_error.log
+  CustomLog ${APACHE_LOG_DIR}/wordpress_access.log combined
+
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode-block"
+
+  <IfModule mod_expires.c>
+     ExpiresActive on
+     ExpireByType image/jpg "access plus 1 month"
+     ExpireByType image/png "access plus 1 month"
+     ExpireByType text/css "access plus 1 week"
+     ExpireByType application/javascript "access plus 1 week"
+  </ifModule>
+</VirtualHost>
