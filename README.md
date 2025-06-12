@@ -20,3 +20,9 @@ docker-compose up -d
 ###Access to services###
 
 http://localhost:8080
+
+###SSL termination###
+- set domain to point to cloudflare
+- use "full (strict)"
+- nginx need to be configure to forward X-Forwarded-Proto and respect HTTPS
+- Block direct IP access on the server and allow only CloudFlare IPs
