@@ -38,3 +38,8 @@ http://localhost:8080
 - static file caching via mod_expires
 - .htaccess support enabled
 
+###node.js pipeline###
+- checkout code
+- install dependencies
+- run tests
+- deploy
